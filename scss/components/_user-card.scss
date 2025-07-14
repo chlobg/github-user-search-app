@@ -1,0 +1,41 @@
+@use "../variables";
+@use "../mixins";
+
+.infos {
+  background-color: var(--card);
+  border-radius: variables.$radius;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  .presentation {
+    display: flex;
+    gap: 2rem;
+
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+    }
+  }
+
+  .bio {
+    color: var(--text);
+  }
+
+  .grid-data {
+    background: var(--bg-alt);
+    padding: 1rem;
+    border-radius: variables.$radius;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,17 @@
+@use "../variables";
+@use "../mixins";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  &__toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    @include mixins.hoverEffect();
+  }
+}

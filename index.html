@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>devfinder</title>
+    <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="container">
+    <header class="header flex">
+      <h1 class="header__title">devfinder</h1>
+      <div class="header__toggle" id="theme-toggle">
+        <span id="theme-text">LIGHT</span>
+        <img id="theme-icon" src="./assets/icon-sun.svg" alt="theme icon" />
+      </div>
+    </header>
+
+    <main class="main">
+      <div id="searchBar" class="searchBar flex">
+        <img src="./assets/icon-search.svg" alt="search" />
+        <!-- <label for="search" class="sr-only">Search GitHub username</label> -->
+        <input
+          id="search"
+          class="fs-200"
+          placeholder="Search GitHub username..."
+        />
+        <!-- <div id="search-err" class="err-msg">No results</div> -->
+        <button class="ff-bold" onclick="getData()">Search</button>
+      </div>
+
+      <article id="infos" class="infos">
+        <div class="presentation flex">
+          <img id="avatar" src="" alt="User avatar" />
+          <div>
+            <h2 id="name">The Octocat</h2>
+            <a id="username" href="https://github.com/octocat" target="_blank"
+              >@octocat</a
+            >
+            <p id="joined">Joined 26 Jan 2011</p>
+          </div>
+        </div>
+
+        <p id="obj-bio" class="bio">This profile has no bio</p>
+
+        <div id="grid-data" class="grid-data">
+          <div>
+            <p>Repos</p>
+            <p id="repos"><strong>8</strong></p>
+          </div>
+          <div>
+            <p>Followers</p>
+            <p id="followers"><strong>18593</strong></p>
+          </div>
+          <div>
+            <p>Following</p>
+            <p id="following"><strong>9</strong></p>
+          </div>
+        </div>
+
+        <ul class="list flow grid">
+          <li>
+            <img src="./assets/icon-location.svg" alt="location icon" />
+            <span id="location">San Francisco</span>
+          </li>
+          <li>
+            <img src="./assets/icon-twitter.svg" alt="twitter icon" />
+            <span id="twitter">Not Available</span>
+          </li>
+          <li>
+            <img src="./assets/icon-chain.svg" alt="blog icon" />
+            <a id="blog" href="https://github.blog">https://github.blog</a>
+          </li>
+          <li>
+            <img src="./assets/icon-company.svg" alt="company icon" />
+            <span id="company">@github</span>
+          </li>
+        </ul>
+      </article>
+    </main>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>

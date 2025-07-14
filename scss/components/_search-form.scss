@@ -1,0 +1,31 @@
+@use "../variables";
+@use "../mixins";
+
+.searchBar {
+  background-color: var(--card);
+  padding: 1rem;
+  border-radius: variables.$radius;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+  }
+
+  button {
+    background-color: variables.$clr-blue;
+    color: variables.$clr-white;
+    padding: 0.5rem 1rem;
+    border-radius: variables.$radius;
+    border: none;
+    cursor: pointer;
+    font-weight: variables.$font-weight-bold;
+    @include mixins.hoverEffect;
+  }
+}

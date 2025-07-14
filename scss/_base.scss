@@ -1,0 +1,25 @@
+@use "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: variables.$font-main;
+  font-size: variables.$font-size-base;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color variables.$transition,
+    color variables.$transition;
+  min-height: 100vh;
+  /* display: flex; */
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

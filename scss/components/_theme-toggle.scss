@@ -1,0 +1,16 @@
+@use "../variables";
+@use "../mixins";
+
+:root {
+  --bg: #f6f8ff;
+  --text: #4b6a9b;
+  --card: #fefefe;
+  --bg-alt: #e0e0e0;
+}
+
+.dark {
+  --bg: #141d2f;
+  --text: #ffffff;
+  --card: #1e2a47;
+  --bg-alt: #2b3442;
+}
