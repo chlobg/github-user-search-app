@@ -1,31 +1,75 @@
+// ========== scss/components/_search-form.scss ==========
 @use "../variables";
 @use "../mixins";
 
 .searchBar {
-  background-color: var(--card);
-  padding: 1rem;
-  border-radius: variables.$radius;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  @extend %button-base;
+  @include mixins.flex;
+  flex-direction: row;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--clr-lightBlack);
+
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
+  margin-top: 2.25rem;
+
+  img {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    top: 0.8rem;
+    left: 0.8rem;
+  }
 
   input {
-    flex: 1;
+    flex-grow: 2;
     border: none;
+    border-radius: 15px;
     outline: none;
-    background: transparent;
-    color: var(--text);
+    background-color: var(--clr-lightBlack);
+
+    &::placeholder {
+      color: var(--clr-text);
+      background-color: var(--clr-lightBlack);
+    }
   }
 
   button {
-    background-color: variables.$clr-blue;
-    color: variables.$clr-white;
-    padding: 0.5rem 1rem;
-    border-radius: variables.$radius;
+    position: relative;
+    background-color: var(--clr-blue);
+    color: var(--clr-white);
+    height: 2.4rem;
+    width: 5.25rem;
+    font-weight: bold;
+    border-radius: 10px;
     border: none;
-    cursor: pointer;
-    font-weight: variables.$font-weight-bold;
-    @include mixins.hoverEffect;
+    right: 0.25rem;
+    top: 0.3rem;
+
+    &:hover {
+      background-color: linear-gradient(
+          rgba(255, 255, 255, 0.1),
+          rgba(255, 255, 255, 0.1)
+        ),
+        var(--clr-blue);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+.err-msg {
+  font-size: 11px;
+  text-align: right;
+  padding-top: 1rem;
+  color: red;
+  display: none;
+  background-color: var(--clr-lightBlack);
+
+  @include mixins.respond(sm) {
+    padding-top: 0.5rem;
   }
 }

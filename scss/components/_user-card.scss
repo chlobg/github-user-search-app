@@ -1,41 +1,307 @@
+// ========== scss/components/_user-card.scss ==========
 @use "../variables";
 @use "../mixins";
 
 .infos {
-  background-color: var(--card);
-  border-radius: variables.$radius;
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  margin-top: 1rem;
+  width: 100%;
+  background-color: var(--clr-lightBlack);
+
+  border-radius: 15px;
+  box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.2);
 
   .presentation {
+    padding-top: 2rem;
+    padding-left: 1.5rem;
     display: flex;
-    gap: 2rem;
+    align-items: flex-start;
 
-    img {
-      width: 80px;
-      height: 80px;
+    .avatar {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
+
+      @include mixins.respond(sm) {
+        width: 117px;
+        height: 117px;
+      }
     }
   }
 
-  .bio {
-    color: var(--text);
+  .right {
+    flex-direction: column;
+
+    @include mixins.respond(sm) {
+      margin-left: 2.5rem;
+      margin-top: 1rem;
+    }
+
+    @include mixins.respond(lg) {
+      margin-left: 2.3rem;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      :nth-child(1) {
+        margin-right: 15rem;
+      }
+
+      #obj-bio {
+        margin-left: 10.5rem;
+      }
+    }
   }
 
-  .grid-data {
-    background: var(--bg-alt);
-    padding: 1rem;
-    border-radius: variables.$radius;
+  a {
+    color: hsl(var(--clr-blue));
+  }
+}
+
+#obj-name {
+  margin-block-end: 0;
+  position: relative;
+  bottom: 0.3rem;
+  order: 1;
+
+  @include mixins.respond(sm) {
+    font-size: var(--fs-600);
+  }
+}
+
+#obj-username {
+  position: relative;
+  bottom: 0.9rem;
+  order: 2;
+
+  @include mixins.respond(sm) {
+    bottom: 0;
+  }
+
+  @include mixins.respond(lg) {
+    bottom: 1.5rem;
+    order: 3;
+  }
+}
+
+#obj-date {
+  position: relative;
+  bottom: 0.5rem;
+  order: 3;
+
+  @include mixins.respond(sm) {
+    top: 0.5rem;
+  }
+
+  @include mixins.respond(lg) {
+    position: initial;
+    top: 21rem;
+    order: 2;
+  }
+}
+
+.bio {
+  margin-top: 2.07rem;
+  margin-bottom: 1.45rem;
+  padding-inline: 1rem;
+
+  @include mixins.respond(lg) {
+    margin-left: 10.5rem;
+    margin-top: 0;
+  }
+}
+
+.header-data {
+  flex: 1;
+  margin-left: 2.3rem;
+
+  .header-row {
     display: flex;
     justify-content: space-between;
-    text-align: center;
+    flex-wrap: wrap;
+    align-items: center;
+
+    h2 {
+      font-size: var(--fs-600);
+      font-weight: 700;
+      color: var(--clr-darkBlue);
+    }
+
+    .joined {
+      font-size: var(--fs-300);
+      color: var(--clr-darkWhite);
+      margin-right: 2.3rem;
+    }
   }
 
-  .list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  a {
+    font-size: var(--fs-400);
+    color: var(--clr-blue);
+    text-decoration: none;
+  }
+}
+
+.grid-data {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--clr-card-alt); // ou clr-card
+  border-radius: 10px;
+  padding-block: 1.5rem;
+  margin: 0 1.5rem;
+
+  @include mixins.respond(lg) {
+    margin-left: 10.5rem;
+    margin-right: 1.5rem;
+  }
+
+  div {
+    text-align: center;
+
+    p:first-child {
+      color: var(--clr-text);
+      font-size: var(--fs-200);
+    }
+
+    strong {
+      font-size: var(--fs-600);
+      font-weight: 700;
+      color: var(--clr-black); // ou var(--clr-text) en dark
+    }
+  }
+
+  /*.grid-data {
+  display: grid;
+  grid-template-areas:
+    "repos followers following"
+    "nbr-repos nbr-followers nbr-following";
+  row-gap: 0.4rem;
+  margin: 0 1.5rem;
+  background-color: hsl(var(--clr-darkWhite));
+  border-radius: 10px;
+  padding-top: 1.1rem;
+  padding-bottom: 1.1rem;
+  justify-content: space-around;
+
+  @media (max-width: 315px) {
+    grid-template-areas:
+      "repos"
+      "nbr-repos"
+      "followers"
+      "nbr-followers"
+      "following"
+      "nbr-following";
+    place-items: center;
+    row-gap: 0;
+  }*/
+
+  @include mixins.respond(lg) {
+    margin-left: 12rem;
+  }
+}
+
+.repos {
+  grid-area: repos;
+}
+.followers {
+  grid-area: followers;
+}
+.following {
+  grid-area: following;
+}
+#obj-repos {
+  grid-area: nbr-repos;
+  justify-self: center;
+  color: var(--clr-card);
+}
+#obj-followers {
+  grid-area: nbr-followers;
+  justify-self: center;
+  color: var(--clr-card);
+}
+#obj-following {
+  grid-area: nbr-following;
+  justify-self: center;
+  color: var(--clr-card);
+}
+
+.list {
+  list-style: none;
+  padding-bottom: 4rem;
+  padding-inline-start: 1.5rem;
+  display: grid;
+  grid-template-areas:
+    "item1"
+    "item2"
+    "item3"
+    "item4";
+  grid-template-columns: 100%;
+  row-gap: 1rem;
+
+  @media (min-width: 700px) {
+    grid-template-areas:
+      "item1 item3"
+      "item2 item4";
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+  }
+
+  @include mixins.respond(lg) {
+    margin-left: 10rem;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
     gap: 1rem;
+    color: var(--clr-text);
+  }
+
+  #list-item1 {
+    grid-area: item1;
+  }
+  #list-item2 {
+    grid-area: item2;
+  }
+  #list-item3 {
+    grid-area: item3;
+  }
+  #list-item4 {
+    grid-area: item4;
+  }
+
+  img {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+  }
+
+  span,
+  a {
+    font-size: var(--fs-400);
+    color: var(--clr-marine);
+    text-decoration: none;
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
+  }
+
+  .opacity {
+    opacity: 0.5;
+  }
+
+  .not-available {
+    color: var(--clr-marine);
+    opacity: 0.5;
+
+    img {
+      opacity: 0.5;
+    }
+  }
+
+  @media (max-width: 315px) {
+    span,
+    a {
+      font-size: 0.8rem;
+    }
   }
 }

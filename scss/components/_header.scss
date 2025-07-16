@@ -1,17 +1,55 @@
+// ========== scss/components/_header.scss ==========
 @use "../variables";
 @use "../mixins";
 
 .header {
-  display: flex;
+  @include mixins.flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+
+  @include mixins.respond(sm) {
+    margin-top: 8.75rem;
+  }
+
+  @include mixins.respond(lg) {
+    margin-top: 9rem;
+  }
+
+  &__title {
+    line-height: 2.375rem;
+    font-size: var(--fs-600);
+    font-weight: 700;
+    color: (var(--clr-darkBlue));
+  }
 
   &__toggle {
-    display: flex;
+    align-self: flex-start;
+    border: none;
     align-items: center;
-    gap: 0.5rem;
+    background: transparent;
     cursor: pointer;
-    @include mixins.hoverEffect();
+    letter-spacing: 2.5px;
+    font-size: var(--fs-300);
+    font-family: var(--ff-reg);
+
+    > span {
+      color: var(--clr-text);
+      font-weight: bold;
+    }
+
+    > img {
+      position: relative;
+      top: 0.2rem;
+      display: inline;
+      width: 20px;
+      stroke: var(--clr-text);
+    }
+
+    &.hoverClass1 {
+      @include mixins.hoverClass1();
+    }
+
+    &.hoverClass2 {
+      @include mixins.hoverClass2();
+    }
   }
 }

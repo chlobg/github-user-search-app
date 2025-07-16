@@ -34,26 +34,43 @@ function updateUserData(data) {
   repos.textContent = data.public_repos;
   followers.textContent = data.followers;
   following.textContent = data.following;
-  locationEl.textContent = data.location || "Not Available";
-  twitter.textContent = data.twitter_username || "Not Available";
-  blog.textContent = data.blog || "Not Available";
-  blog.href = data.blog || "#";
-  company.textContent = data.company || "Not Available";
+  setTextOrUnavailable(locationEl, data.location);
+  setTextOrUnavailable(twitter, data.twitter_username);
+  setTextOrUnavailable(company, data.company);
+
+  if (!data.blog) {
+    blog.textContent = "Not Available";
+    blog.href = "#";
+    blog.classList.add("not-available");
+  } else {
+    blog.textContent = data.blog;
+    blog.href = data.blog;
+    blog.classList.remove("not-available");
+  }
 }
 
 function showError(show = true) {
   searchError.style.display = show ? "block" : "none";
 }
 
-function getData() {
-  const username = searchInput.value.trim();
-  if (!username) return;
+function setTextOrUnavailable(el, text) {
+  const parent = el.closest("li");
 
+  if (!text) {
+    el.textContent = "Not Available";
+    el.classList.add("not-available");
+    if (parent) parent.classList.add("opacity");
+  } else {
+    el.textContent = text;
+    el.classList.remove("not-available");
+    if (parent) parent.classList.remove("opacity");
+  }
+}
+
+function getData(username = "octocat") {
   fetch(`https://api.github.com/users/${username}`)
     .then((res) => {
-      if (!res.ok) {
-        throw new Error("User not found");
-      }
+      if (!res.ok) throw new Error("User not found");
       return res.json();
     })
     .then((data) => {
@@ -65,29 +82,48 @@ function getData() {
     });
 }
 
+function applyTheme(theme) {
+  const html = document.documentElement;
+  if (theme === "dark") {
+    html.classList.add("dark");
+    themeText.textContent = "LIGHT";
+    themeIcon.src = "./assets/icon-sun.svg";
+  } else {
+    html.classList.remove("dark");
+    themeText.textContent = "DARK";
+    themeIcon.src = "./assets/icon-moon.svg";
+  }
+  localStorage.setItem("devfinder-theme", theme);
+}
+
 function toggleTheme() {
-  document.body.classList.toggle("dark");
-  const darkMode = document.body.classList.contains("dark");
-  localStorage.setItem("devfinder-theme", darkMode ? "dark" : "light");
-  themeText.textContent = darkMode ? "LIGHT" : "DARK";
-  themeIcon.src = darkMode ? "./assets/icon-sun.svg" : "./assets/icon-moon.svg";
+  const isDark = document.documentElement.classList.contains("dark");
+  const newTheme = isDark ? "light" : "dark";
+  applyTheme(newTheme);
 }
 
 function initTheme() {
-  const saved = localStorage.getItem("devfinder-theme");
-  if (saved === "dark") {
-    document.body.classList.add("dark");
-  }
-  toggleTheme(); // to set text + icon
-  toggleTheme();
+  const savedTheme = localStorage.getItem("devfinder-theme") || "dark";
+  applyTheme(savedTheme);
 }
 
 // ========== Event Listeners ==========
 themeToggle.addEventListener("click", toggleTheme);
+
 searchInput.addEventListener("keypress", (e) => {
-  if (e.key === "Enter") getData();
+  if (e.key === "Enter") getData(searchInput.value.trim());
 });
 
+// Ajoutez cette ligne avec vos autres sélecteurs DOM
+const searchBtn = document.getElementById("search-btn");
+
+// Ajoutez cet event listener avec les autres
+searchBtn.addEventListener("click", () => {
+  const username = searchInput.value.trim();
+  if (username) {
+    getData(username);
+  }
+});
 // ========== Init ==========
 initTheme();
-getData("octocat");
+getData();

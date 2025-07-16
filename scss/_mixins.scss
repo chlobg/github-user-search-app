@@ -1,21 +1,54 @@
-@use "variables";
+// ========== scss/_mixins.scss ==========
+@mixin flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
 
-@mixin respond($breakpoint) {
-  @if $breakpoint == tablet {
-    @media (min-width: 768px) {
-      @content;
-    }
-  }
-  @if $breakpoint == desktop {
-    @media (min-width: 1024px) {
-      @content;
-    }
+@mixin grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+@mixin hoverClass1 {
+  &:hover,
+  &:active {
+    color: hsla(220, 18%, 16%, 1);
+    filter: invert(0.6) sepia(2) saturate(100) hue-rotate(180deg)
+      brightness(60%);
   }
 }
 
-@mixin hoverEffect {
-  transition: all variables.$transition;
-  &:hover {
-    opacity: 0.8;
+@mixin hoverClass2 {
+  &:hover,
+  &:active {
+    color: hsl(var(--clr-marine));
+    filter: invert(0.6) sepia(2) saturate(50) hue-rotate(180deg) brightness(90%);
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: 35em) {
+      @content;
+    }
+  }
+  @if $breakpoint == md {
+    @media (min-width: 45em) {
+      @content;
+    }
+  }
+  @if $breakpoint == lg {
+    @media (min-width: 54em) {
+      @content;
+    }
+  }
+
+  %button-base {
+    height: 2.4rem;
+    border-radius: 10px;
+    border: none;
+    font-weight: bold;
+    font-family: var(--ff-reg);
+    transition: background-color 0.3s ease;
   }
 }

@@ -1,16 +1,49 @@
-$clr-dark: #141d2f;
-$clr-light: #fefefe;
-$clr-grey: #697c9a;
-$clr-blue: #0079ff;
-$clr-bg-dark: #1e2a47;
-$clr-bg-light: #f6f8ff;
-$clr-white: #ffffff;
-$clr-error: #f74646;
+// ========== scss/_variables.scss ==========
+:root {
+  --clr-blue: hsl(212 100% 50%);
+  --clr-white: hsl(0 0% 100%);
+  --clr-grayBlue: hsl(217 20% 51%);
+  --clr-marine: hsl(217 35% 45%);
+  --clr-darkBlue: hsl(217 21% 21%);
+  --clr-darkWhite: hsl(227 100% 98%);
+  --clr-black: hsl(220 40% 13%);
+  --clr-lightBlack: hsl(0, 0%, 100%);
+  --clr-text: hsl(217 20% 51%);
+  --clr-card: hsl(0 0% 100%);
+  --clr-card-alt: hsl(225, 100%, 98%);
 
-$font-main: "Space Mono", monospace;
-$font-size-base: 1rem;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
+  --fs-600: 1.625rem;
+  --fs-500: 1rem;
+  --fs-400: 0.9375rem;
+  --fs-300: 1rem;
+  --fs-200: 0.6875rem;
 
-$radius: 0.75rem;
-$transition: 0.3s ease;
+  --ff-reg: "Space Mono";
+}
+
+:root.dark {
+  --clr-bg: hsl(220 40% 13%);
+  --clr-text: hsl(0, 0%, 100%);
+  --clr-card: hsl(223, 43%, 15%);
+  --clr-card-alt: hsl(228, 41%, 10%);
+  --clr-darkBlue: hsl(0, 0%, 100%);
+  --clr-lightBlack: hsl(222 41% 20%);
+  --clr-darkWhite: hsl(217 20% 51%);
+}
+
+@media (min-width: 35em) {
+  :root {
+    --fs-600: 1.625rem;
+    --fs-500: 1.375rem;
+    --fs-400: 1rem;
+    --fs-300: 0.9375rem;
+    --fs-200: 0.8125rem;
+    padding-inline: 4rem;
+  }
+}
+
+@media (min-width: 45em) {
+  :root {
+    padding-inline: 2rem;
+  }
+}
