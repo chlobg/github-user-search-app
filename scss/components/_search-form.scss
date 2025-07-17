@@ -28,9 +28,10 @@
     border-radius: 15px;
     outline: none;
     background-color: var(--clr-lightBlack);
+    color: var(--clr-white);
 
     &::placeholder {
-      color: var(--clr-text);
+      color: var(--clr-search);
       background-color: var(--clr-lightBlack);
     }
   }
@@ -83,6 +84,7 @@
     .searchBar input,
     .searchBar button {
       width: 100%;
+      color: var(--clr-search);
     }
 
     .grid-data {

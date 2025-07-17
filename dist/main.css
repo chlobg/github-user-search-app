@@ -188,9 +188,10 @@ select {
   border-radius: 15px;
   outline: none;
   background-color: var(--clr-lightBlack);
+  color: var(--clr-white);
 }
 .searchBar input::placeholder {
-  color: var(--clr-text);
+  color: var(--clr-search);
   background-color: var(--clr-lightBlack);
 }
 .searchBar button {
@@ -246,6 +247,7 @@ select {
   .err-msg .searchBar input,
   .err-msg .searchBar button {
     width: 100%;
+    color: var(--clr-search);
   }
   .err-msg .grid-data {
     flex-direction: column;
