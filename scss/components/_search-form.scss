@@ -38,7 +38,7 @@
   button {
     position: relative;
     background-color: var(--clr-blue);
-    color: var(--clr-white);
+    color: var(--clr-search);
     height: 2.4rem;
     width: 5.25rem;
     font-weight: bold;
@@ -48,7 +48,7 @@
     top: 0.3rem;
 
     &:hover {
-      background-color: var(--clr-blue) / 0.7;
+      background-color: rgba(0, 120, 255, 0.7);
     }
 
     &:active {

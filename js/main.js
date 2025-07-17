@@ -54,9 +54,8 @@ function updateUserData(data) {
 }
 
 function showError(show = true) {
-  searchError.style.display = show ? "block" : "none";
+  searchError.style.display = show ? "flex" : "none";
 }
-
 function setTextOrUnavailable(el, text) {
   const parent = el.closest("li");
 

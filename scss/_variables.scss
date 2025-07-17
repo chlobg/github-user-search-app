@@ -8,7 +8,7 @@
   --clr-marine: hsl(217 35% 45%);
   --clr-darkBlue: hsl(217 21% 21%);
   --clr-darkWhite: hsl(217 20% 51%);
-
+  --clr-search: hsl(0 0% 100%);
   --clr-black: hsl(220 40% 13%);
   --clr-lightBlack: hsl(0, 0%, 100%);
   --clr-text: hsl(217 20% 51%);
@@ -25,6 +25,7 @@
 }
 
 :root.dark {
+  --clr-search: hsl(0 0% 100%);
   --clr-bg: hsl(220 40% 13%);
   --clr-white: hsl(0 0% 100%);
   --clr-text: hsl(0, 0%, 100%);

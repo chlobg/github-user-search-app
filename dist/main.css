@@ -6,6 +6,7 @@
   --clr-marine: hsl(217 35% 45%);
   --clr-darkBlue: hsl(217 21% 21%);
   --clr-darkWhite: hsl(217 20% 51%);
+  --clr-search: hsl(0 0% 100%);
   --clr-black: hsl(220 40% 13%);
   --clr-lightBlack: hsl(0, 0%, 100%);
   --clr-text: hsl(217 20% 51%);
@@ -20,6 +21,7 @@
 }
 
 :root.dark {
+  --clr-search: hsl(0 0% 100%);
   --clr-bg: hsl(220 40% 13%);
   --clr-white: hsl(0 0% 100%);
   --clr-text: hsl(0, 0%, 100%);
@@ -194,7 +196,7 @@ select {
 .searchBar button {
   position: relative;
   background-color: var(--clr-blue);
-  color: var(--clr-white);
+  color: var(--clr-search);
   height: 2.4rem;
   width: 5.25rem;
   font-weight: bold;
@@ -204,7 +206,7 @@ select {
   top: 0.3rem;
 }
 .searchBar button:hover {
-  background-color: var(--clr-blue)/0.7;
+  background-color: rgba(0, 120, 255, 0.7);
 }
 .searchBar button:active {
   transform: translateY(1px);
