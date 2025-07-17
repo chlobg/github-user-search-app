@@ -2,10 +2,13 @@
 :root {
   --clr-blue: hsl(212 100% 50%);
   --clr-white: hsl(0 0% 100%);
+
+  --clr-white: hsl(223, 43%, 15%);
   --clr-grayBlue: hsl(217 20% 51%);
   --clr-marine: hsl(217 35% 45%);
   --clr-darkBlue: hsl(217 21% 21%);
-  --clr-darkWhite: hsl(227 100% 98%);
+  --clr-darkWhite: hsl(217 20% 51%);
+
   --clr-black: hsl(220 40% 13%);
   --clr-lightBlack: hsl(0, 0%, 100%);
   --clr-text: hsl(217 20% 51%);
@@ -23,12 +26,13 @@
 
 :root.dark {
   --clr-bg: hsl(220 40% 13%);
+  --clr-white: hsl(0 0% 100%);
   --clr-text: hsl(0, 0%, 100%);
   --clr-card: hsl(223, 43%, 15%);
   --clr-card-alt: hsl(228, 41%, 10%);
   --clr-darkBlue: hsl(0, 0%, 100%);
   --clr-lightBlack: hsl(222 41% 20%);
-  --clr-darkWhite: hsl(217 20% 51%);
+  --clr-darkWhite: hsl(227 100% 98%);
 }
 
 @media (min-width: 35em) {

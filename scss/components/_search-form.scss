@@ -48,11 +48,7 @@
     top: 0.3rem;
 
     &:hover {
-      background-color: linear-gradient(
-          rgba(255, 255, 255, 0.1),
-          rgba(255, 255, 255, 0.1)
-        ),
-        var(--clr-blue);
+      background-color: var(--clr-blue) / 0.7;
     }
 
     &:active {
@@ -66,10 +62,45 @@
   text-align: right;
   padding-top: 1rem;
   color: red;
-  display: none;
+  display: flex;
+  align-items: center;
+  padding: 0;
   background-color: var(--clr-lightBlack);
 
   @include mixins.respond(sm) {
     padding-top: 0.5rem;
+  }
+
+  @media (max-width: 600px) {
+    .searchBar {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.5rem;
+      height: auto;
+      padding: 1rem;
+    }
+
+    .searchBar input,
+    .searchBar button {
+      width: 100%;
+    }
+
+    .grid-data {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .list {
+      grid-template-columns: 1fr !important;
+      grid-template-areas:
+        "item1"
+        "item2"
+        "item3"
+        "item4";
+    }
+
+    .list li {
+      justify-content: start;
+    }
   }
 }

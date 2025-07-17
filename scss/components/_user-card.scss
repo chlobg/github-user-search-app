@@ -163,34 +163,9 @@
     strong {
       font-size: var(--fs-600);
       font-weight: 700;
-      color: var(--clr-black); // ou var(--clr-text) en dark
+      color: var(--clr-white);
     }
   }
-
-  /*.grid-data {
-  display: grid;
-  grid-template-areas:
-    "repos followers following"
-    "nbr-repos nbr-followers nbr-following";
-  row-gap: 0.4rem;
-  margin: 0 1.5rem;
-  background-color: hsl(var(--clr-darkWhite));
-  border-radius: 10px;
-  padding-top: 1.1rem;
-  padding-bottom: 1.1rem;
-  justify-content: space-around;
-
-  @media (max-width: 315px) {
-    grid-template-areas:
-      "repos"
-      "nbr-repos"
-      "followers"
-      "nbr-followers"
-      "following"
-      "nbr-following";
-    place-items: center;
-    row-gap: 0;
-  }*/
 
   @include mixins.respond(lg) {
     margin-left: 12rem;
@@ -209,17 +184,17 @@
 #obj-repos {
   grid-area: nbr-repos;
   justify-self: center;
-  color: var(--clr-card);
+  color: var(--clr-white);
 }
 #obj-followers {
   grid-area: nbr-followers;
   justify-self: center;
-  color: var(--clr-card);
+  color: var(--clr-white);
 }
 #obj-following {
   grid-area: nbr-following;
   justify-self: center;
-  color: var(--clr-card);
+  color: var(--clr-white);
 }
 
 .list {

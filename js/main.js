@@ -114,10 +114,7 @@ searchInput.addEventListener("keypress", (e) => {
   if (e.key === "Enter") getData(searchInput.value.trim());
 });
 
-// Ajoutez cette ligne avec vos autres sélecteurs DOM
 const searchBtn = document.getElementById("search-btn");
-
-// Ajoutez cet event listener avec les autres
 searchBtn.addEventListener("click", () => {
   const username = searchInput.value.trim();
   if (username) {
