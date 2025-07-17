@@ -458,6 +458,14 @@ select {
   grid-template-areas: "item1" "item2" "item3" "item4";
   grid-template-columns: 100%;
   row-gap: 1rem;
+  /*.not-available {
+    color: var(--clr-marine);
+    opacity: 0.5;
+
+    img {
+      opacity: 0.5;
+    }
+  }*/
 }
 @media (min-width: 700px) {
   .list {
@@ -506,13 +514,6 @@ select {
   text-decoration: underline;
 }
 .list .opacity {
-  opacity: 0.5;
-}
-.list .not-available {
-  color: var(--clr-marine);
-  opacity: 0.5;
-}
-.list .not-available img {
   opacity: 0.5;
 }
 @media (max-width: 315px) {

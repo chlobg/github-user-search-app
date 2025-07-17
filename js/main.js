@@ -38,14 +38,18 @@ function updateUserData(data) {
   setTextOrUnavailable(twitter, data.twitter_username);
   setTextOrUnavailable(company, data.company);
 
+  const listItem2 = document.getElementById("list-item2");
+
   if (!data.blog) {
     blog.textContent = "Not Available";
     blog.href = "#";
     blog.classList.add("not-available");
+    listItem2.classList.add("opacity");
   } else {
     blog.textContent = data.blog;
     blog.href = data.blog;
     blog.classList.remove("not-available");
+    listItem2.classList.remove("opacity");
   }
 }
 
